@@ -4,15 +4,15 @@ export const StyledNav = styled.nav`
   width: 100%;
   height: 100%;
   max-height: ${({ isScroll }) => (isScroll ? "95px" : "135px")};
-  padding: 0 25px;
+  padding: 0 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   background-color: ${({ isScroll }) => isScroll && "white"};
-  transition: max-height 0.5s background-color 0.5s;
-  background-color: ${({ theme }) => theme.colors.gray};
+  transition: max-height 0.3s, background-color 0.3s;
+  z-index: 10;
   img {
     height: 65px;
     cursor: pointer;
@@ -26,6 +26,9 @@ export const StyledNav = styled.nav`
     img {
       height: 95px;
     }
+  }
+  @media screen and (min-width: 1024px) {
+    padding: 0 55px;
   }
 `;
 

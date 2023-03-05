@@ -5,12 +5,27 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./assets/style/them";
+import MainPage from "../src/components/mainPage/MainPage";
+import ContactPage from "../src/components/contactPage/ContactPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <p>coś się zjebało</p>,
+    children: [
+      { path: "/", element: <MainPage /> },
+      { path: "/kontakt", element: <ContactPage /> },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>
 );

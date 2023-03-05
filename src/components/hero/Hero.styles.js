@@ -29,7 +29,7 @@ export const InnerWrapper = styled.div`
     border-radius: 30px;
     background: linear-gradient(1turn, #0c0c0c, #0d0d0d29);
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1024px) {
     min-height: 850px;
   }
 `;
@@ -64,8 +64,7 @@ export const StyledContent = styled.div`
   @media screen and (min-width: 1024px) {
     transform: translateY(-76px);
     transition: transform 0.5s;
-  }
-  @media screen and (min-width: 1440px) {
+
     h1 {
       font-size: 5rem;
       line-height: 6.5rem;
@@ -76,6 +75,7 @@ export const StyledContent = styled.div`
       }
     }
   }
+
 `;
 
 export const BtnWrapper = styled.div`
@@ -84,8 +84,8 @@ export const BtnWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-  width: 75%;
-  max-width: 250px;
+  width: 80%;
+  max-width: 300px;
   gap: 10px;
   margin-bottom: 30px;
   @media screen and (min-width: 1024px) {

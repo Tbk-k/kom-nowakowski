@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledNav = styled.nav`
@@ -63,7 +64,7 @@ export const BtnWrapper = styled.div`
   }
 `;
 
-const Btn = styled.button`
+export const Btn = styled.button`
   border: none;
   font: ${({ theme }) => theme.fonts.button};
   padding: 19px 30px;
@@ -73,6 +74,7 @@ const Btn = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.5s;
+  position: relative;
 `;
 
 export const ContactBtn = styled(Btn)`
@@ -90,4 +92,14 @@ export const RepayBtn = styled(Btn)`
     background-color: ${({ theme }) => theme.colors.hover};
     color: white;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;

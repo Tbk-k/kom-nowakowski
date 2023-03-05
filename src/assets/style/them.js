@@ -12,7 +12,7 @@ export const theme = {
     heading: {
       L: "400 3.2rem/3.5rem 'Quicksand', sans-serif",
       M: "400 2.6rem/3rem 'Quicksand', sans-serif",
-      S: "400 2rem/2rem 'Quicksand', sans-serif",
+      S: "400 2rem/2.4rem 'Quicksand', sans-serif",
       span: {
         L: "400 5rem/4rem 'Vujahday Script', cursive;",
         M: "400 3.2rem/3.2rem 'Vujahday Script', cursive;",

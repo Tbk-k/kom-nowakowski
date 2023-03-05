@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import {
   BtnWrapper,
   ContactBtn,
@@ -10,38 +10,57 @@ import { BsMailbox } from "react-icons/bs";
 import { CgMenu } from "react-icons/cg";
 import LogoDark from "../../assets/img/logoDark.png";
 import LogoWhite from "../../assets/img/logoLight.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setMenuIsOpen }) => {
   const [isScroll, setIsScroll] = useState(false);
 
-  const handleScroll = (e) => {
+  const handleScroll = useCallback((e) => {
     let scrollY = window.scrollY;
-    setIsScroll(scrollY > 30 ? true : false);
-  };
+    setIsScroll(scrollY > 30);
+  }, []);
 
-  const handleOpenMenu = () => {
+  const handleOpenMenu = useCallback(() => {
     setMenuIsOpen(true);
-  };
+  }, [setMenuIsOpen]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
-  let logo = isScroll ? LogoDark : LogoWhite;
+  const navigate = useNavigate();
+
+  const logo = useMemo(() => (isScroll ? LogoDark : LogoWhite), [isScroll]);
 
   return (
     <StyledNav isScroll={isScroll}>
       <BtnWrapper>
-        <ContactBtn>kontakt z kancelarią</ContactBtn>
+        <ContactBtn
+          onClick={() => {
+            navigate("/kontakt");
+          }}
+        >
+          kontakt z kancelarią
+        </ContactBtn>
         <RepayBtn>spłać zadłużenie</RepayBtn>
       </BtnWrapper>
       <StyledBtn isScroll={isScroll} className="mail-box">
-        <BsMailbox />
+        <BsMailbox
+          onClick={() => {
+            navigate("/kontakt");
+          }}
+        />
       </StyledBtn>
-      <img src={logo} alt="" />
+      <img
+        src={logo}
+        alt=""
+        onClick={() => {
+          navigate("/");
+        }}
+      />
       <StyledBtn isScroll={isScroll}>
         <CgMenu onClick={handleOpenMenu} />
       </StyledBtn>

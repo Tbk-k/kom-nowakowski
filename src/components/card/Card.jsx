@@ -1,13 +1,17 @@
 import React from "react";
-import { StyledCard, StyledIcon, Wrapper } from "../subpageLinks/Card.styles";
+import { LinkBtn, StyledCard, StyledIcon, Wrapper } from "./Card.styles";
 
-const Card = () => {
+const Card = ({ title, desc, link, img }) => {
   return (
     <StyledCard>
       <Wrapper>
         <StyledIcon>
-          <div></div>
+          <div>{img}</div>
         </StyledIcon>
+        <h4>{title}</h4>
+        <hr />
+        <p>{desc}</p>
+        <LinkBtn>- Przejdź -</LinkBtn>
       </Wrapper>
     </StyledCard>
   );

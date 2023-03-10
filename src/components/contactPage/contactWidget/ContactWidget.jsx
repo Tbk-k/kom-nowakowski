@@ -2,7 +2,7 @@ import React from "react";
 import { CiMobile3, CiMail } from "react-icons/ci";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.address`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.bg};
   div {

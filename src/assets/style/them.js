@@ -15,7 +15,7 @@ export const theme = {
       S: "400 2rem/2.4rem 'Quicksand', sans-serif",
       span: {
         L: "400 5rem/4rem 'Vujahday Script', cursive;",
-        M: "400 3.2rem/3.2rem 'Vujahday Script', cursive;",
+        M: "400 3.8rem/4rem 'Vujahday Script', cursive;",
       },
     },
     paragraph: {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.address`
   width: 95%;
   max-width: 1000px;
   border-radius: 30px;

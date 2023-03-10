@@ -1,18 +1,16 @@
 import React from "react";
-import { LinkBtn, StyledCard, StyledIcon, Wrapper } from "./Card.styles";
+import { InnerWrapper, StyledCard } from "./Card.styles";
 
-const Card = ({ title, desc, link, img }) => {
+const Card = ({ title, desc, link, img, btn }) => {
   return (
-    <StyledCard>
-      <Wrapper>
-        <StyledIcon>
-          <div>{img}</div>
-        </StyledIcon>
-        <h4>{title}</h4>
-        <hr />
-        <p>{desc}</p>
-        <LinkBtn>- Przejdź -</LinkBtn>
-      </Wrapper>
+    <StyledCard img={img}>
+      <InnerWrapper btn={btn}>
+        <div>
+          <h3>{title}</h3>
+          <p>{desc}</p>
+        </div>
+        <button>{btn.label}</button>
+      </InnerWrapper>
     </StyledCard>
   );
 };

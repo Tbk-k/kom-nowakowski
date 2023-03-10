@@ -1,81 +1,123 @@
 import styled from "styled-components";
-import { RepayBtn } from "../navbar/Navbar.styles";
 
 export const StyledCard = styled.div`
-  background-color: white;
   width: 100%;
   border-radius: 30px;
-  padding: 10px;
   margin-bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.3s;
   min-height: 500px;
-  max-width: 500px;
-  &:hover {
-    transform: translateY(-10px);
-  }
-`;
-
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-  border-radius: 30px;
-  border: 1px solid black;
-  border-color: ${({ theme }) => theme.colors.gray};
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  h4 {
-    font: ${({ theme }) => theme.fonts.heading.span.M};
-    margin: 25px 0 0;
-    text-align: center;
-  }
-  hr {
-    width: 150px;
-    border: none;
-    background-color: ${({ theme }) => theme.colors.orange};
+  background: ${({ img }) => `url(${img}) center`};
+  background-size: cover;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
-    height: 2px;
-    margin: 10px 0;
+    background: linear-gradient(
+      90deg,
+      hsla(0, 0%, 5%, 0.65),
+      hsla(0, 0%, 5%, 0.65)
+    );
   }
-  p {
-    width: 90%;
-    max-width: 450px;
-    font: ${({ theme }) => theme.fonts.paragraph.M};
-    text-align: center;
-    margin-bottom: 50px;
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    min-height: 400px;
   }
-`;
+  @media screen and (min-width: 768px) {
+    &:first-of-type {
+      div {
+        align-items: flex-start;
+        text-align: start;
+        padding: 0 50px;
+        h3 {
+          font-size: 6rem;
+          line-height: 6.5rem;
+        }
+        p {
+          font-size: 1.9rem;
+          line-height: 2.6rem;
+          max-width: 500px;
+        }
+        button {
+          margin-left: 50px;
+        }
+      }
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      width: 49%;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    &:nth-of-type(1) {
+      min-height: 585px;
+    }
 
-export const StyledIcon = styled.div`
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.gray};
-  border-radius: 50%;
-  div {
-    width: 45px;
-    background-color: ${({ theme }) => theme.colors.orange};
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    svg {
-      color: white;
-      font-size: 25px;
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      min-height: 480px;
+      div {
+        justify-content: flex-end;
+        gap: 0;
+        h3 {
+          font-size: 5rem;
+          line-height: 5rem;
+        }
+        p {
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+        }
+        button {
+          max-width: 350px;
+          margin: 0 auto;
+        }
+      }
     }
   }
 `;
 
-export const LinkBtn = styled(RepayBtn)`
-  ${StyledCard}:hover & {
-    background-color: ${({ theme }) => theme.colors.hover};
-    color: white;
+export const InnerWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 60px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  h3 {
+    margin: 0;
+    font: ${({ theme }) => theme.fonts.heading.span.M};
+  }
+  p {
+    font: ${({ theme }) => theme.fonts.paragraph.M};
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: -0.2px;
+  }
+  button {
+    background-color: ${({ btn }) => btn.idle.bg};
+    color: ${({ btn }) => btn.idle.color};
+    cursor: pointer;
+    border: none;
+    font: ${({ theme }) => theme.fonts.button};
+    padding: 19px 30px;
+    border-radius: 30px;
+    letter-spacing: 0.18rem;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    position: relative;
+    &:hover {
+      background-color: ${({ btn }) => btn.hover.bg};
+      color: ${({ btn }) => btn.hover.color};
+    }
   }
 `;

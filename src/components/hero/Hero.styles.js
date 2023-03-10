@@ -75,7 +75,6 @@ export const StyledContent = styled.div`
       }
     }
   }
-
 `;
 
 export const BtnWrapper = styled.div`
